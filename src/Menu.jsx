@@ -5,7 +5,7 @@ function Menu() {
 
                 <div className=" py-14 flex justify-between">
                     <h2 className="text-[#bca114] text-2xl font-medium">This weeks special</h2>
-                    <button className="bg-[#f4ce14] py-1 px-4 rounded-lg">Reserve a Table</button>
+                    <button className="bg-[#f4ce14] py-1 px-4 rounded-lg">Order online</button>
                 </div>
                 <div className="py-6">
                     <div className="flex justify-between items-center  container">

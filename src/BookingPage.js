@@ -1,19 +1,55 @@
-function BookingPage() {
+import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+
+function BookingPage(props) {
+    const [bookTable, setBookTable] = useState(props.table);
+    const { register, errors, handleSubmit } = useForm();
+
+
+    const onSubmit = (data) => {
+        console.log("RESULT", data);
+        setBookTable(bookTable.concat(data))
+      };
+      console.log(bookTable)
     return (
         <>
-            <div className="py-6 bg-[#495e57]">
-                <div className="flex justify-between items-center container">
-                    <div className="flex basis-3/12 flex-col items-start">
-                        <h2 className="text-[#bca114] text-2xl font-medium">Little Lemon</h2>
-                        <h3 className="text-[#a1aca8] text-xl font-medium">Chicago</h3>
-                        <p className="text-[#a1aca8] py-4">we are a family owned mediterranean restaurant, focused on traditional receipt served in modern twist</p>
-                        <button className="bg-[#f4ce14] py-1 px-4 rounded-lg">Reserve a Table</button>
-                    </div>
-                    <div className=" w-48 h-40 rounded-xl">
-                        <img src={'assets/icons/restauranfood.jpg'} alt="" />
-                    </div>
-                </div>
-            </div>
+            <form className= "flex flex-col max-w-lg py-8" onSubmit={handleSubmit(onSubmit)}>
+                <label>
+                    Choose date:
+                    <input type="date"
+                            {...register("date", {required: true})}
+                    />
+                </label>
+                <label>
+                    Choose time:
+                    <select name="Time" {...register("time", { required: true })}>
+                        <option>17:00</option>
+                        <option>18:00</option>
+                        <option>19:00</option>
+                        <option>20:00</option>
+                        <option>21:00</option>
+                        <option>22:00</option>
+                    </select>
+                </label>
+                <label>
+                    Number of guests:
+                    <input type="number"
+                    placeholder="1"
+                    {...register("number of guests", { required: true, minLength: 1, maxLength: 10 })}
+                    />
+                </label>
+                <label>
+                    Occasion:
+                    <select name="Occasion" {...register("occasion", { required: true })}>
+                        <option>Birthday</option>
+                        <option>Anniversary</option>
+                        <option>Other</option>
+
+                    </select>
+                </label>
+                <input className="bg-[#f4ce14] py-1 px-4 rounded-lg" type="submit" value="Make Your reservation" />
+            </form>
         </>
     );
 }

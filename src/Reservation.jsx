@@ -1,3 +1,6 @@
+
+import { NavLink } from "react-router-dom";
+
 function Reservation() {
     return (
         <>
@@ -7,7 +10,9 @@ function Reservation() {
                         <h2 className="text-[#bca114] text-2xl font-medium">Little Lemon</h2>
                         <h3 className="text-[#a1aca8] text-xl font-medium">Chicago</h3>
                         <p className="text-[#a1aca8] py-4">we are a family owned mediterranean restaurant, focused on traditional receipt served in modern twist</p>
-                        <button className="bg-[#f4ce14] py-1 px-4 rounded-lg">Reserve a Table</button>
+                        <NavLink to="/booking">
+                            <button className="bg-[#f4ce14] py-1 px-4 rounded-lg" to="/booking" >Reserve a Table</button>
+                        </NavLink>
                     </div>
                     <div className=" w-48 h-40 rounded-xl">
                         <img src={'assets/icons/restauranfood.jpg'} alt="" />

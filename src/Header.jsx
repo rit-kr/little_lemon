@@ -31,7 +31,7 @@ function Header() {
               </NavLink>
             </l1>
             <l1 className="px-2">
-              <NavLink to="/about" style={({ isActive }) => ({
+              <NavLink to="/booking" style={({ isActive }) => ({
                 color: isActive ? 'greenyellow' : 'black'
               })}>
                 Reservation
